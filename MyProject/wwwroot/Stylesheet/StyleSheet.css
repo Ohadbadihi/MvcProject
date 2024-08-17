@@ -198,9 +198,10 @@ main .main-header {
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    z-index: 10;
 }
 .gallery-controls button {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.7);
     border: 2px solid #000;
     border-radius: 50%;
     cursor: pointer;
@@ -222,10 +223,10 @@ main .main-header {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid #000;
-    border-right: 2px solid #000;
+    width: 10px; 
+    height: 10px; 
+    border-top: 2px solid #000; 
+    border-right: 2px solid #000; 
 }
 .gallery-controls-previous::before {
     transform: translate(-40%, -50%) rotate(-135deg);
@@ -309,7 +310,8 @@ main .main-header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width:200px;
     height:300px;
-    box-shadow: 0 0 5px 0 white;
+    box-shadow: 0 0 5px 1px white;
+    background-color:rgb(87 87 87 / 0.49);
 }
 
 .animal-cards:hover {
@@ -510,10 +512,9 @@ td.tdAnimalCategory {
     height: 100%;
     padding: 15px;
     margin-right: 15px;
-    background-color: rgb(122, 194, 199);
+    background-color: rgb(87 87 87 / 0.49);
     box-shadow: 1px 1px 10px 4px white;
     border-radius: 2px;
-
 }
 
 .addComment h3{
@@ -558,7 +559,7 @@ td.tdAnimalCategory {
     height: 100%;
     width: 40%;
     padding: 15px;
-    background-color: rgb(122, 194, 199);
+    background-color: rgb(87 87 87 / 0.49);
     border-radius: 2px;
     box-shadow: 1px 1px 10px 4px white;
     overflow: auto;
@@ -848,18 +849,17 @@ td.tdAnimalCategory {
     height: 200px;
     background-color: rgb(122, 194, 199);
     padding: 5px;
-    box-shadow: 1px 1px 10px 10px rgb(81, 172, 189);
+    box-shadow: 1px 1px 30px 1px black;
     gap: 10px;
 }
 
 .Form-btnContainer {
-    display: flex;
-    flex-direction: column;
+    justify-self:center;
+    align-self:center;
     width: 100px;
     height: 50px;
     background-color: rgb(122, 194, 199);
     justify-content: center;
-    margin-left: 150px;
 }
 
 .Label {
@@ -984,8 +984,8 @@ td.tdAnimalCategory {
     position:absolute;
     height:50px;
     z-index:1;
-    margin-top:10px;
-    left:40px;
+    margin-top:40px;
+    left:60px;
 }
 
 .messageFillFields-Form p{
