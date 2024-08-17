@@ -15,14 +15,14 @@
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5157",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"/*Chnage here to production*/
+        "ASPNETCORE_ENVIRONMENT": "Production" 
       }
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }
