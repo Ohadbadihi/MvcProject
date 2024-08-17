@@ -1,0 +1,131 @@
+﻿@model Animal
+@{
+    ViewBag.Title = "Add Animal";
+}
+
+@section Navigation {
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Catalog" asp-action="Catalog">Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Administrator" asp-action="Administrator">Administrator</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+@section Header {
+    <div class="main-header">
+        <h2>Add new Animal:</h2>
+    </div>
+}
+
+<div class="FormContainer">
+    <div class="messageFillFields-Form">
+            <p>*Fill all fields</p>
+    </div>
+
+
+
+    <form class="Form-AnimalAdministrator" method="post" asp-controller="Administrator" asp-action="AddAnimal" enctype="multipart/form-data" id="formAddAnimal">
+
+        <div class="InputContainer">
+
+            <div class="Label">
+                <label asp-for="Name" class="FormLabel">Name</label>
+            </div>
+
+            <div class="error-message-container">
+                <div id="NameError" class="error-message"></div>
+            </div>
+
+            <div class="UserInputField">
+                <input asp-for="Name" type="text" id="Name" class="form-input-Name" />
+            </div>
+
+        </div>
+
+        <div class="InputContainer">
+
+            <div class="Label">
+                <label asp-for="Age" class="FormLabel">Age</label>
+            </div>
+
+            <div class="error-message-container">
+                <div id="AgeError" class="error-message"></div>
+            </div>
+
+            <div class="UserInputField">
+                <input asp-for="Age" type="number" id="Age" class="form-input-Age"/>
+            </div>
+
+        </div>
+
+        <div class="InputContainer">
+
+            <div class="Label">
+                <label for="PictureFile" class="FormLabel">Picture</label>
+            </div>
+
+            <div class="error-message-container">
+                <div id="PictureFileError" class="error-message"></div>
+            </div>
+
+            <div class="UserInputField">
+                <input type="file" id="PictureFile" name="PictureFile" accept="image/*" />
+            </div>
+
+        </div>
+
+        <div class="InputContainer">
+
+            <div class="Label">
+                <label asp-for="Description" class="FormLabel">Description</label>
+            </div>
+
+            <div class="error-message-container">
+                <div id="DescriptionError" class="error-message"></div>
+            </div>
+
+            <div class="UserInputField">
+                <textarea asp-for="Description" rows="3" id="Description" class="form-input-Description"></textarea>
+            </div>
+
+        </div>
+
+        <div class="InputContainer">
+
+            <div class="Label">
+                <label asp-for="CategoryId" class="FormLabel">Category</label>
+            </div>
+
+            <div class="error-message-container">
+                <div id="CategoryIdError" class="error-message"></div>
+            </div>
+
+            <div class="UserInputField">
+                <select asp-for="CategoryId" id="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))" class="select-animalCategory-EditnAdd">
+                    <option value="">Select Category</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="Form-btnContainer">
+            <button type="submit" id="submitButton" class="form-Animal-Btn" disabled>Insert Animal</button>
+        </div>
+    </form>
+</div>
+
+@section scripts {
+    <script src="~/scripts/jquery.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/scriptValidationForAddAnimalFields.js"></script>
+}

@@ -1,0 +1,115 @@
+﻿@model Animal
+
+@{
+    ViewBag.Title = "Animal Details";
+}
+
+@section Navigation {
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Catalog" asp-action="Catalog">Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Administrator" asp-action="Administrator">Administrator</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+@section Header {
+    <div class="main-header">
+        <h2>Animal Details: @Model.Name</h2>
+    </div>
+}
+
+<div class="AnimalMainContainer">
+
+    <div class="TableContainer">
+        <table class="MyTable">
+            <thead>
+                <tr>
+
+                    <th class="thAnimalName">Image</th>
+                    <th class="thAnimalAge">Name</th>
+                    <th class="thAnimalAge">Age</th>
+                    <th class="thAnimalDescription">Description</th>
+                    <th class="thAnimalCategory">Category Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="trAninal">
+                    <td class="tdAnimalImg"> <img src="/@Model.PictureName" alt="@Model.Name" class="tableImage" /> </td>
+                    <td class="tdAnimalName">@Model.Name</td>
+                    <td class="tdAnimalAge"><p>@Model.Age</p></td>
+                    <td class="tdAnimalDescription">@Model.Description</td>
+                    <td class="tdAnimalCategory">@Model.Category!.CategoryName</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="commentContainer">
+        <div class="addComment">
+
+            <h3> Enter a comment: </h3>
+
+            <form method="post" asp-controller="Catalog" asp-action="AnimalComment" class="form-AddComment">
+                <input type="hidden" name="animalId" value="@Model.AnimalId" />
+                <textarea id="commentText" name="comment"></textarea>
+                <div class="messageBox"></div>
+                <button id="CommentBtn" class="addCommentBtn" type="submit">Add Comment</button>
+            </form>
+        </div>
+
+
+
+        <div class="allCommentsContainer">
+
+            @if (ViewBag.Comments != null && ((IEnumerable<CommentModel>)ViewBag.Comments).Any() && ((IEnumerable<CommentModel>)ViewBag.Comments).Any(comment => !string.IsNullOrEmpty(comment.Comment)))
+            {
+                <div>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">All Comments: </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    @foreach (var comment in (IEnumerable<CommentModel>)ViewBag.Comments)
+                                    {
+                                        <div class="comment">
+
+                                            <div class="commentContext">
+                                                @comment.Comment
+                                            </div>
+
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div>No Comment yet for this animal.</div>
+            }
+
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts {  
+    <script src="~/scripts/scriptValidateComment.js"></script>
+}

@@ -1,0 +1,994 @@
+﻿* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin:0;
+    padding:0;
+}
+
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/flat-lay-toys-with-food-bowl-fur-brush-dogs_23-2148949620.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+}
+
+header {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 20px;
+    width: 100%;
+    background-color:rgb(147, 147, 147);
+}
+
+.header-icon {
+    font-size: 40px;
+    color: #5e5e5e;
+}
+
+.header-h1-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:300px;
+    height:50px;
+}
+
+.header-h1 {
+    border-bottom: 2px solid rgb(60, 173, 189);
+    padding: 0;
+    color: white;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+}
+
+.container-fluid{
+    width: 350px;
+    height:45px;
+    padding: 0;
+}
+
+nav.navbar {
+    padding: 0;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.nav-item {
+    margin-left: 15px;
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: rgb(24, 151, 255);
+}
+
+.nav-link i{
+    display:block;
+    text-align:center;
+    font-size:12px;
+}
+
+.container {
+    display: block;
+    overflow:auto;
+    flex: 1;
+    height: 90%;
+    min-width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 95%;
+    box-shadow: 0 0 5px 1px rgb(255, 255, 255);
+    color: white;
+    padding: 5px;
+    overflow: auto;
+}
+
+main .main-header {
+   display:flex;
+   flex-direction:row;
+   position: sticky;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 5%;
+   padding: 10px;
+   white-space: nowrap;
+   text-align: start;
+   z-index: 10;
+   color: white;
+   font-size:20px;
+}
+
+.main-header h2{
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/*Home page*/
+.gallery {
+    margin-top: 5%;
+    height: 800px;
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    bottom:50px;
+}
+.card {
+    border: 5px double rgb(103, 169, 190);
+    height: 480px;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    width: 350px;
+    max-width: 90%;
+    z-index: 0;
+    border-radius: 12px;
+    background-size: contain;
+    font-size: 14px;
+    overflow: hidden;
+}
+.gallery-item-1 {
+    left: 25%;
+    opacity: 0.6;
+    transform: translateX(-50%) scale(0.9);
+}
+.gallery-item-2 {
+    display: block;
+    box-shadow: 1px 1px 10px 5px white;
+    height: 600px;
+    max-height: auto;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%) scale(1.1);
+    width: 450px;
+    z-index: 2;
+}
+.card-picture {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.gallery-cardInfo {
+    padding: 5px;
+}
+.gallery-cardInfo-h2 h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.gallery-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+.gallery-controls button {
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0;
+    margin: 0 10px;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.gallery-controls button:hover {
+    background-color: rgb(24, 151, 255);
+    border-color: rgb(24, 151, 255);
+}
+.gallery-controls-previous::before,
+.gallery-controls-next::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+}
+.gallery-controls-previous::before {
+    transform: translate(-40%, -50%) rotate(-135deg);
+}
+.gallery-controls-next::before {
+    transform: translate(-60%, -50%) rotate(45deg);
+}
+.gallery-controls button:hover::before {
+    border-color: #fff;
+}
+
+
+/*display one card*/
+
+.Index-Card-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items:center;
+    align-items:center;
+    width: 800px;
+    height: 800px;
+
+}
+.Index-Card-animal-card {
+    text-align: left;
+    width: 450px;
+    height: 650px;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 1px 0px 25px 10px white;
+    color:rgb(55, 55, 55);
+}
+
+.accordion-body.IndexAB {
+    height: 381px;
+}
+
+.accordion-AnimalCommentsAmount {
+    width: 100%;
+    height: 10%;
+}
+
+.accordion-AnimalDescription{
+    width:100%;
+    height:90%;
+    border-radius:10px;
+}
+
+.IndexCardImg {
+    border-radius: 2px;
+    width: 100%;
+    height: 225px;
+}
+
+.Index-Card-animal-card:hover {
+    border-color: rgb(127, 208, 222);
+    box-shadow: 1px 0px 25px 15px rgb(127, 208, 222);
+}
+
+
+
+
+/*    catalog page main */
+.catalog-container {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+    padding: 15px;
+    margin-top:15px;
+
+}
+
+.animal-cards {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    justify-items:center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width:200px;
+    height:300px;
+    box-shadow: 0 0 5px 0 white;
+}
+
+.animal-cards:hover {
+    color: rgb(0, 124, 196);
+    border-color: rgb(130, 213, 221);
+    box-shadow: 1px 1px 30px 10px white;
+    transition: 0.4s ease-in;
+}
+
+.card-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+    text-align:center;
+    width:100%;
+    height:100%;
+}
+
+.card-info h2 {
+    display:block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    overflow:auto;
+    font-size: 20px;
+    width:100%;
+    height:40px;
+}
+
+.btn-primary {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    text-align: center; 
+    width: 80px;
+    height: 20px;    
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-size:15px;
+}
+
+.card-info .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.form-select {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    height: 38px;
+    z-index: 1;
+    padding-left: 3px;
+    font-family: monospace;
+    font-size:15px;
+    border:1px solid black;
+}
+
+.form-select option{
+    text-align:center;
+    font-family:monospace;
+    font-size:16px;
+}
+
+.cardImg {
+    min-width: 198px !important;
+    max-width: 198px !important;
+    min-height: 180px !important;
+    max-height: 180px !important;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+/*Animal Page     */
+
+.AnimalMainContainer{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+    align-items:center;
+}
+
+Animal.TableContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items:center;
+}
+
+.MyTable {
+    margin-top:20px;
+    border: 3px solid rgb(177, 184, 186);
+    width: 1600px;
+    height: 360px;
+    box-shadow: 1px 1px 10px 5px white;
+    border-radius: 5px;
+    z-index: 2;
+    background-color: rgb(69, 157, 163);
+}
+
+th, td {
+   border: 2px solid rgb(177, 184, 186);
+   text-align: left;
+   padding:0;
+
+}
+
+th{
+    padding-left:5px;
+}
+
+.thAnimalDescription{
+    width:800px;
+}
+
+.thAnimalName{
+    width:245px;
+}
+
+td.tdAnimalImg {
+    width: 350px;
+    height: 330px;
+}
+
+td.tdAnimalName {
+    display: block;
+    text-align: left;
+    width: 245px;
+    height: 100%;
+    font-size: 22px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    border: none;
+    overflow: auto;
+}
+
+td.tdAnimalAge {
+   text-align:center;
+   width: 80px;
+   height: 50%;
+   font-size:22px;
+}
+
+.tdAnimalDescription {
+    display: block;
+    text-align: left;
+    width:800px;
+    height: 100%;
+    font-size: 18px;
+    padding: 6px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    border: none;
+    overflow: auto;
+}
+
+td.tdAnimalCategory {
+   text-align:center;
+   width: 120px;
+   height: 50%;
+   padding-left: 10px;
+   font-size:20px;
+}
+
+.tableImage{
+    padding:0;
+    margin:0;
+    width:100%;
+    height:100%;
+    border-radius:2px;
+}
+
+.commentContainer {
+    display:flex;
+    justify-content:center;
+    width:90%;
+    height:300px;
+    margin-top:50px;
+}
+
+.addComment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    border: 1px solid rgb(177, 184, 186);
+    width: 40%;
+    height: 100%;
+    padding: 15px;
+    margin-right: 15px;
+    background-color: rgb(122, 194, 199);
+    box-shadow: 1px 1px 10px 4px white;
+    border-radius: 2px;
+
+}
+
+.addComment h3{
+    width:165px;
+    height: 30px;
+    border-bottom:2px solid rgb(60, 173, 189);
+    font-size:20px;
+}
+
+.form-AddComment {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-AddComment textarea {
+    max-width: 100%;
+    min-width: 90%;
+    min-height: 75px;
+    max-height: 75px;
+    font-size: 15px;
+    white-space: pre-wrap;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.messageBox{
+    color:red;
+    display:block;
+    height:24px;
+}
+
+.addCommentBtn {
+    white-space: nowrap;
+    width: 120px;
+    height: 35px;
+    position: relative;
+    left: 40%;
+}
+
+.allCommentsContainer {
+    border: 1px solid rgb(177, 184, 186);
+    height: 100%;
+    width: 40%;
+    padding: 15px;
+    background-color: rgb(122, 194, 199);
+    border-radius: 2px;
+    box-shadow: 1px 1px 10px 4px white;
+    overflow: auto;
+}
+
+.accordion{
+    padding-top:0px;
+    margin-top:-10px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 20px;
+    max-height: auto;
+    min-width: auto;
+    max-width: auto; 
+    margin: 4px;
+    background-color: rgb(135, 220, 229);
+    border: 1px solid gray;   
+}
+
+.commentContext {
+    display: block;
+    text-align: left;
+    padding: 2px;
+    font-size: 14px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.comment:hover {
+    box-shadow: 1px 1px 5px 5px rgb(181, 195, 195);
+}
+
+.addCommentBtn:hover {
+    background-color: #90EE90;
+    box-shadow: 1px 1px 50px 5px white;
+}
+
+
+
+/*  Administrator page  */
+.administrator-Container {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    margin-top: 10px;
+}
+
+.administrator-AnimalCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 320px;
+    box-shadow: 0 0 5px 5px white;
+    margin-left:20px;
+    margin-top:20px;
+    background-color: rgb(189, 189, 187);
+    margin-right:20px ;
+    margin-bottom: 10px;
+}
+
+.administrator-Img-container{
+    display:flex;
+    justify-items:start;
+    padding:0;
+    width:100%;
+    height:140px;
+}
+
+.administrator-Card-Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    gap:15px;
+}
+
+.administrator-Card-AnimalName {
+    display: block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow:hidden;
+    white-space:normal;
+    font-size:11px;
+    width: 100%;
+    height: 20px;
+    max-width:auto;
+    text-align: center;
+}
+
+.administrator-Card-AnimalName h2{
+    font-size:20px;
+    width:100%;
+    height:20px;
+}
+
+.administrator-Card-AnimalAge {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+}
+
+.administrator-descriptionBtn-container {
+    width: 100%;
+    height: 60px;
+}
+
+.administrator-descriptionBtn-container .btn.btn-lg.btn-danger{
+    text-align:center;
+    width: 100px;
+    height:50px;
+    font-size: 10px;
+    white-space:normal;
+    background-color:rgb(252, 162, 0);
+    border: 1px solid white;
+    font-size:12px;
+}
+
+.administrator-AnimalcardImg {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    padding: 0;
+    min-width: 198px !important;
+    max-width: 198px !important;
+    min-height: 140px !important;
+    max-height: 140px !important;
+    border-radius: 15px;
+}
+
+
+.administrator-card-Btns-container{
+    display:flex;
+    flex-direction:row;
+    gap: 10px;
+    justify-content:center;
+    align-items:end;
+    width:100%;
+    height:24px;
+    margin-bottom: 1px;
+}
+
+.administrator-Delete-Btn, .administrator-Edit-Btn {
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid black;
+    height: 24px;
+    color: black;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.administrator-Edit-Btn{
+    width:60px;   
+}
+
+.administrator-Delete-Btn{
+    width:60px;
+}
+
+.administrator-AnimalCard:hover{
+    transition: 0.4s ease-out;
+    box-shadow: 1px 1px 40px 20px white;
+}
+
+.administrator-Delete-Btn:hover {
+    background-color: rgb(110, 208, 234);
+    box-shadow: 1px 1px 10px 5px White;
+}
+
+.administrator-Edit-Btn:hover {
+    background-color: rgb(110, 208, 234);
+    box-shadow: 1px 1px 10px 5px White;
+}
+
+.popover.bs-popover-auto.fade.show {
+    max-width: 400px;
+    min-width: 400px;
+    height: auto;
+    white-space:normal;
+    font-size: 16px;
+}
+
+.administrator-h2{
+    width:100%;
+}
+
+.administrator-addAnimal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 160px;
+    height: 40px;
+    margin-right: 100px;
+    margin-top: 30px;
+    border: 1px solid rgb(255, 180, 0);
+    background-color: white;
+    box-shadow: 1px 1px 40px 5px white;
+    border-radius:2px;
+}
+
+.addAnimalBtn{   
+    font-size:15px;
+    text-decoration:none;
+    color:rgb(0, 122, 255);  
+}
+
+.administrator-addAnimal:hover {
+    box-shadow: 1px 1px 20px 20px rgb(25, 151, 215);
+    transition: 0.5s ease-in-out;
+}
+
+.alert-success, .alert-danger {
+    width: 200px;
+    height: auto;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    bottom: 80px;
+    right: 40px;
+    z-index: 1000;
+}
+
+.alert-success {
+    background-color: green;
+}
+
+.alert-danger {
+    background-color: red;
+}
+
+.no-animals-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.no-animals-message p {
+    font-size: 18px;
+    color: rgb(255, 180, 0);
+}
+
+/*  Add Animal Page  */
+
+.FormContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    border: 1px solid white;
+    box-shadow: 1px 1px 10px 5px white;
+}
+
+.Form-AnimalAdministrator {
+    width: 1600px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.InputContainer {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: 1px solid white;
+    width: 400px;
+    height: 200px;
+    background-color: rgb(122, 194, 199);
+    padding: 5px;
+    box-shadow: 1px 1px 10px 10px rgb(81, 172, 189);
+    gap: 10px;
+}
+
+.Form-btnContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(122, 194, 199);
+    justify-content: center;
+    margin-left: 150px;
+}
+
+.Label {
+    display:block;
+    padding-top:0;
+    margin-top:0;
+    height: 40px;
+    width: 100%;
+}
+
+.FormLabel {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    justify-content: center;
+}
+.error-message-container {
+    height: 20px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    line-height: 20px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.UserInputField {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    max-height:100px;
+    font-size: 15px
+}
+
+
+.form-input-Name, .form-input-Age{
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.select-animalCategory-EditnAdd {
+    width:200px;
+    text-align:center;
+    font-size:16px;
+}
+
+.form-input-Description {
+    max-width: 350px;
+    max-height: 100px;
+    min-width: 350px;
+    min-height: 100px;
+    font-size: 16px;
+}
+
+.form-Animal-Btn {
+    width: 100%;
+    height: 100%;
+}
+
+.form-Animal-Btn:hover{
+    box-shadow:1px 1px 10px 5px white;
+}
+
+.UserInputFieldPicture input{  
+    width:100%;   
+}
+
+.Form-DisplayImg{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:80px;
+    gap:100px;
+    margin-top:10px;
+}
+
+.Form-DisplayImg div{
+    width: 160px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size:9px;
+    color:black;
+}
+
+.Form-DisplayImg img{
+    max-width:100px;
+    max-height:80px;
+    min-width:50px;
+    min-height:40px;
+}
+
+.ErrorPage-Container{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    text-align:center;
+    margin-top:40px;
+}
+
+.errorPage-P-Container{
+    width:500px;
+    height:40px;
+}
+
+.errorPage-Message{
+    color:rgb(185, 35, 35);
+    font-size:20px;
+}
+
+.messageFillFields-Form{
+    position:absolute;
+    height:50px;
+    z-index:1;
+    margin-top:10px;
+    left:40px;
+}
+
+.messageFillFields-Form p{
+  color:red;
+  font-size:17px;
+}

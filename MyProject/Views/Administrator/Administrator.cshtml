@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Animal>
+@{
+    ViewBag.Title = "Administrator";
+}
+
+
+@section Navigation {
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Catalog" asp-action="Catalog">Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" asp-controller="Administrator" asp-action="Administrator">Administrator</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+
+@section Header {
+    <div class="main-header">
+        <div class="administrator-h2">
+
+            <h2>Please select a Category:</h2>
+        </div>
+
+        <div class="administrator-addAnimal">
+            <a asp-controller="Administrator" asp-action="AddAnimal" class="addAnimalBtn">Add new Animal</a>
+        </div>
+    </div>
+
+    @{
+        var selectedCategoryId = ViewBag.SelectedCategoryId as int?;
+    }
+
+    <form method="get" asp-controller="Administrator" asp-action="Administrator">
+        <select name="categoryId" class="form-select" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                @if (selectedCategoryId == category.CategoryId)
+                {
+                    <option value="@category.CategoryId" selected>@category.CategoryName</option>
+                }
+                else
+                {
+                    <option value="@category.CategoryId">@category.CategoryName</option>
+                }
+            }
+        </select>
+    </form>
+}
+
+
+<div class="administrator-Container">
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div id="successMessage" class="alert alert-success" style="display:none;">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div id="errorMessage" class="alert alert-danger" style="display:none;">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+
+    @if (!Model.Any())
+    {
+        <div class="no-animals-message">
+            <p>No animals available here.</p>
+        </div>
+    }
+    else
+    {
+        @foreach (var animal in Model)
+        {
+
+            <div class="administrator-AnimalCard">
+                <div class="administrator-Img-container">
+                    <img class="administrator-AnimalcardImg" src="/@animal.PictureName" alt="@animal.Name" />
+                </div>
+                <div class="administrator-Card-Info">
+                    <div class="administrator-Card-AnimalName"> <h2>@animal.Name</h2> </div>
+                    <div class="administrator-Card-AnimalAge">Age: @animal.Age</div>
+
+                    <div class="administrator-descriptionBtn-container">
+                        <button type="button" class="btn btn-lg btn-danger description-popover"
+                                data-bs-toggle="popover"
+                                data-bs-title="Description of @animal.Name :"
+                                data-bs-content="@animal.Description">
+
+                            Click for a Description
+                        </button>
+
+                    </div>
+
+                    <div class="administrator-card-Btns-container">
+
+                         <a asp-controller="Administrator" asp-action="EditAnimal" asp-route-animalId="@animal.AnimalId" class="administrator-Edit-Btn">Edit</a>
+
+                        <form method="post" asp-controller="Administrator" asp-action="DeleteAnimal" onsubmit="return confirm('Are you sure you want to delete this animal?');">
+                            <input type="hidden" name="animalId" value="@animal.AnimalId" />
+                            <button type="submit" class="administrator-Delete-Btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    }
+   
+
+</div>
+
+@section Scripts {
+    <script src="~/scripts/scriptPopOver.js"></script>
+    <script src="~/scripts/scriptDeleteAnimalMessage.js"></script>    
+}
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Animal>
+@{
+    ViewBag.Title = "Catalog";
+}
+
+@section Navigation {
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" asp-controller="Catalog" asp-action="Catalog">Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Administrator" asp-action="Administrator">Administrator</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+@section Header {
+    <div class="main-header">
+        <h2>Please select a Category:</h2>
+    </div>
+
+    @{
+        var selectedCategoryId = ViewBag.SelectedCategoryId as int?;
+    }
+
+    <form method="post" asp-controller="Catalog" asp-action="Catalog">
+        <select name="categoryId" class="form-select" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                @if (selectedCategoryId == category.CategoryId)
+                {
+                    <option value="@category.CategoryId" selected>@category.CategoryName</option>
+                }
+                else
+                {
+                    <option value="@category.CategoryId">@category.CategoryName</option>
+                }
+            }
+        </select>
+    </form>
+}
+
+
+<div class="catalog-container">
+
+    @foreach (var animal in Model)
+    {
+        <div class="animal-cards">
+            <img class="cardImg" src="/@animal.PictureName" alt="@animal.Name" />
+            <div class="card-info">
+                <h2>@animal.Name</h2>
+                <form method="post" asp-controller="Catalog" asp-action="AnimalDetails">
+                    <input type="hidden" name="animalId" value="@animal.AnimalId" />
+                    <button type="submit" class="btn btn-primary">Detail</button>
+                </form>
+
+            </div>
+        </div>
+    }
+
+</div>
+
